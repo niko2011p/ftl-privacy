@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — FTL (Fungo Tracker Logger)</title>
+  <title>Privacy Policy — FTL (Funghi Tracker Logger)</title>
   <style>
     :root { --green: #8eaa36; }
     * { box-sizing: border-box; }
@@ -20,81 +20,180 @@
     .summary { background: #f0f4e0; border-left: 4px solid var(--green); padding: 12px 16px; border-radius: 6px; }
     hr { border: none; border-top: 1px solid #ddd; margin: 2.5em 0; }
     code { background: #eee; padding: 1px 5px; border-radius: 4px; }
+    table { border-collapse: collapse; width: 100%; font-size: 0.95em; }
+    th, td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; vertical-align: top; }
+    th { background: #f0f4e0; }
+    .tablewrap { overflow-x: auto; }
   </style>
 </head>
 <body>
   <h1>Informativa sulla Privacy — FTL</h1>
-  <p class="muted">Fungo Tracker Logger · Ultimo aggiornamento: 17 giugno 2026</p>
+  <p class="muted">Funghi Tracker Logger · Ultimo aggiornamento: 2 agosto 2026</p>
 
-  <p>FTL (Fungo Tracker Logger) è un'applicazione per il tracciamento GPS delle escursioni di
+  <p>FTL (Funghi Tracker Logger) è un'applicazione per il tracciamento GPS delle escursioni di
   raccolta di funghi e tartufi. Questa informativa descrive quali dati l'app tratta e come.</p>
   <p>Titolare del trattamento: <strong>Isaac Pitasi</strong> — contatto:
   <a href="mailto:isaac.pitasi@gmail.com">isaac.pitasi@gmail.com</a></p>
 
   <div class="summary">
-    <strong>In sintesi:</strong> i tuoi dati (tracce GPS, foto, ritrovamenti) restano
-    <strong>sul tuo dispositivo</strong>. <strong>Non vendiamo</strong> e
-    <strong>non condividiamo</strong> i tuoi dati a fini pubblicitari. L'app
-    <strong>non contiene pubblicità</strong> e non usa profilazione.
+    <strong>In sintesi:</strong> tracce GPS, ritrovamenti, foto e impostazioni restano
+    <strong>sul tuo dispositivo</strong>: non esiste alcun server FTL, nessun account e nessun
+    cloud dell'app. Per fornire alcune funzioni (meteo, mappe, nomi dei luoghi) l'app invia
+    <strong>le coordinate necessarie</strong> ai servizi esterni elencati sotto.
+    <strong>Non vendiamo</strong> e <strong>non cediamo</strong> i tuoi dati; l'app
+    <strong>non contiene pubblicità</strong> né SDK di analytics.
   </div>
 
-  <h2>Dati trattati</h2>
+  <h2>Dati salvati sul dispositivo</h2>
+  <p>Tracce GPS, ritrovamenti (specie, note, coordinate), foto allegate, tag, diario meteo,
+  impostazioni e mappe offline (MBTiles) sono salvati <strong>solo localmente</strong>
+  nell'archiviazione privata dell'app. Restano finché non li elimini: puoi cancellare singole
+  tracce o ritrovamenti, oppure usare <strong>«Elimina tutti i dati»</strong> nelle
+  Impostazioni. Il backup automatico di Android è <strong>disattivato</strong>: i dati escono
+  dal dispositivo solo se li <strong>esporti tu</strong> (GPX/ZIP/condivisione). Nota: i file
+  GPX esportati contengono le coordinate della traccia e dei ritrovamenti e le eventuali foto
+  allegate — condividili con attenzione.</p>
 
   <h3>Posizione (GPS), anche in background</h3>
-  <p>L'app raccoglie la tua posizione per registrare le tracce dei percorsi, mostrarti sulla
-  mappa e contrassegnare i ritrovamenti. La raccolta <strong>in background</strong> avviene
-  <strong>solo durante una sessione di tracciamento attiva avviata da te</strong>, per non
-  interrompere la registrazione del percorso. Le tracce sono salvate <strong>localmente</strong>.</p>
+  <p>L'app raccoglie la tua posizione per registrare le tracce, mostrarti sulla mappa e
+  contrassegnare i ritrovamenti. La raccolta <strong>in background</strong> (a schermo spento o
+  app ridotta) avviene <strong>solo durante una sessione di tracciamento attiva avviata da
+  te</strong>, tramite un servizio in primo piano con notifica visibile. Le tracce sono salvate
+  <strong>localmente</strong>.</p>
 
   <h3>Foto</h3>
-  <p>Se scegli di allegare foto ai ritrovamenti, l'app usa la fotocamera (con il permesso
-  <em>Fotocamera</em>) oppure il selettore file di sistema per scegliere un'immagine esistente.
-  Le immagini sono salvate <strong>localmente</strong> insieme al ritrovamento e non vengono
-  trasmesse ad alcun server.</p>
+  <p>Se scegli di allegare foto ai ritrovamenti, l'app usa la fotocamera (permesso
+  <em>Fotocamera</em>) oppure il selettore file di sistema. Le immagini sono salvate
+  <strong>localmente</strong> e non vengono caricate su alcun server.</p>
 
-  <h3>Dati tecnici locali</h3>
-  <p>Impostazioni, cache mappe offline (MBTiles) e dati meteo memorizzati per l'uso offline,
-  conservati sul dispositivo.</p>
+  <h2>Trasmissioni di rete (quali dati escono e verso chi)</h2>
+  <p>Per funzionare, alcune feature contattano servizi esterni. Vengono trasmessi solo i dati
+  minimi indicati; nessun identificativo pubblicitario. Tutte le connessioni sono su HTTPS.</p>
+  <div class="tablewrap">
+  <table>
+    <tr><th>Servizio</th><th>Scopo</th><th>Dati inviati</th></tr>
+    <tr><td><strong>WeatherAPI.com</strong><br /><code>api.weatherapi.com</code></td>
+        <td>Meteo attuale, previsioni e storico; ricerca località; nome del luogo dalle coordinate (fallback)</td>
+        <td>Coordinate della posizione o delle zone richieste, chiave API</td></tr>
+    <tr><td><strong>OpenStreetMap Nominatim</strong><br /><code>nominatim.openstreetmap.org</code></td>
+        <td>Nome del luogo dalle coordinate e ricerca località</td>
+        <td>Coordinate o testo cercato</td></tr>
+    <tr><td><strong>Open-Meteo</strong><br /><code>api.open-meteo.com</code></td>
+        <td>Quota altimetrica dei punti</td>
+        <td>Coordinate</td></tr>
+    <tr><td><strong>Overpass API</strong><br /><code>overpass-api.de</code></td>
+        <td>Aree di ricerca vicine alle zone preferite (cime, boschi, località)</td>
+        <td>Coordinate della zona con raggio di ricerca</td></tr>
+    <tr><td><strong>Tile OpenStreetMap / OpenTopoMap</strong></td>
+        <td>Visualizzazione delle mappe online</td>
+        <td>Richieste di tile: l'operatore vede l'area visualizzata e l'indirizzo IP</td></tr>
+    <tr><td><strong>Internet Archive</strong><br /><code>archive.org</code></td>
+        <td>Download delle mappe offline (MBTiles) per regione</td>
+        <td>Solo il nome della regione richiesta</td></tr>
+    <tr><td><strong>Google Play</strong></td>
+        <td>Verifica della disponibilità di aggiornamenti dell'app</td>
+        <td>Gestito dai Google Play services</td></tr>
+  </table>
+  </div>
 
-  <h2>Servizi di terze parti</h2>
-  <ul>
-    <li><strong>OpenWeather</strong> — dati e previsioni meteo (riceve le coordinate richieste).</li>
-    <li><strong>OpenStreetMap / Nominatim</strong> — geocodifica inversa (nome del luogo).</li>
-    <li><strong>Google Drive (API)</strong> — download dei file di mappa offline (MBTiles).</li>
-  </ul>
-  <p>Queste richieste trasmettono solo i dati minimi necessari (es. coordinate). L'app non invia
-  identificativi pubblicitari.</p>
+  <h3>Controllo meteo in background (notifiche smart) — opt-in</h3>
+  <p>Se attivi le <strong>notifiche smart</strong> nelle Impostazioni (disattivate di default),
+  l'app controlla periodicamente (circa ogni 2 ore) il meteo delle tue <strong>zone preferite
+  anche quando l'app è chiusa</strong>: le coordinate di quelle zone vengono inviate a
+  WeatherAPI.com. Puoi disattivare la funzione in qualsiasi momento dallo stesso interruttore;
+  con le notifiche disattivate nessuna richiesta parte ad app chiusa.</p>
+  <p class="muted">I servizi elencati sono titolari autonomi per i log dei propri server; si
+  applicano le loro informative:
+  <a href="https://www.weatherapi.com/privacy.aspx">WeatherAPI</a>,
+  <a href="https://osmfoundation.org/wiki/Privacy_Policy">OSMF/Nominatim</a>,
+  <a href="https://open-meteo.com/en/terms">Open-Meteo</a>,
+  <a href="https://archive.org/about/terms.php">Internet Archive</a>,
+  <a href="https://policies.google.com/privacy">Google Play</a>.</p>
+
+  <h2>Permessi richiesti</h2>
+  <p>Posizione (precisa, approssimata e in background), fotocamera, notifiche e servizio in
+  primo piano (per il tracciamento e gli avvisi), accesso a Internet (meteo/mappe). Ogni
+  permesso è usato solo per la funzione corrispondente e può essere revocato dalle impostazioni
+  Android.</p>
 
   <h2>Conservazione e cancellazione</h2>
-  <p>I dati restano sul dispositivo finché non li elimini dall'app o disinstalli l'applicazione.
-  Puoi cancellare singole tracce, ritrovamenti e foto in qualsiasi momento.</p>
+  <p>I dati restano sul dispositivo finché non li elimini dall'app («Elimina tutti i dati» in
+  Impostazioni, oppure eliminazione puntuale di tracce e ritrovamenti) o disinstalli
+  l'applicazione.</p>
 
   <h2>Minori</h2>
   <p>L'app non è destinata a minori di 13 anni e non raccoglie consapevolmente i loro dati.</p>
 
-  <h2>I tuoi diritti</h2>
-  <p>I dati risiedono sul tuo dispositivo, quindi ne hai il pieno controllo. Per richieste sulla
-  privacy: <a href="mailto:isaac.pitasi@gmail.com">isaac.pitasi@gmail.com</a>.</p>
+  <h2>I tuoi diritti (GDPR)</h2>
+  <p>I dati risiedono sul tuo dispositivo e ne hai il pieno controllo diretto: accesso (in
+  app), portabilità (export GPX/ZIP), cancellazione (eliminazione in app). Il titolare non
+  conserva copie dei tuoi dati. Per qualsiasi richiesta:
+  <a href="mailto:isaac.pitasi@gmail.com">isaac.pitasi@gmail.com</a>.</p>
+
+  <h2>Nota sulla raccolta di funghi e tartufi</h2>
+  <p>L'app è uno strumento di registrazione e <strong>non fornisce alcuna autorizzazione alla
+  raccolta</strong>: la raccolta di funghi e tartufi è regolata da leggi nazionali e regionali
+  (in Italia, tra le altre, la L. 752/1985 e le normative regionali su permessi, quantità e
+  aree). Verifica sempre le regole locali.</p>
+
+  <h2>Modifiche</h2>
+  <p>Eventuali aggiornamenti a questa informativa saranno pubblicati a questo indirizzo con la
+  relativa data di revisione.</p>
 
   <hr />
 
   <h1>Privacy Policy — FTL (English)</h1>
-  <p class="muted">Last updated: June 17, 2026</p>
-  <p>FTL is a GPS tracking app for mushroom and truffle foraging. Data controller:
-  <strong>Isaac Pitasi</strong> — <a href="mailto:isaac.pitasi@gmail.com">isaac.pitasi@gmail.com</a>.</p>
+  <p class="muted">Last updated: August 2, 2026</p>
+  <p>FTL (Funghi Tracker Logger) is a GPS tracking app for mushroom and truffle foraging.
+  Data controller: <strong>Isaac Pitasi</strong> —
+  <a href="mailto:isaac.pitasi@gmail.com">isaac.pitasi@gmail.com</a>.</p>
   <div class="summary">
-    Your data (GPS tracks, photos, findings) stays <strong>on your device</strong>. We
-    <strong>do not sell or share</strong> personal data for advertising. No ads, no profiling.
+    Your GPS tracks, findings, photos and settings stay <strong>on your device</strong>: there
+    is no FTL server, no account and no app cloud. To provide some features (weather, maps,
+    place names) the app sends <strong>the necessary coordinates</strong> to the external
+    services listed below. We <strong>do not sell or share</strong> your data; no ads, no
+    analytics SDKs.
   </div>
-  <p><strong>Location (incl. background):</strong> recorded to track routes and mark findings;
-  background collection happens only during an active tracking session you start. Tracks stored
+  <p><strong>Data on your device:</strong> GPS tracks, findings, attached photos, tags,
+  weather diary, settings and offline maps are stored locally only, until you delete them
+  (per-item deletion or "Delete all data" in Settings). Android auto-backup is
+  <strong>disabled</strong>: data leaves the device only if <strong>you export it</strong>
+  (GPX/ZIP/share). Exported GPX files contain track/finding coordinates and any attached
+  photos — share them carefully.</p>
+  <p><strong>Location (incl. background):</strong> collected to record routes and mark
+  findings; background collection happens <strong>only during an active tracking session you
+  start</strong>, via a foreground service with a visible notification. Tracks are stored
   locally.</p>
-  <p><strong>Photos:</strong> accessed only if you attach a photo to a finding, via the camera
-  (Camera permission) or the system file picker; stored locally and never sent to any server.</p>
-  <p><strong>Third parties:</strong> OpenWeather, OpenStreetMap/Nominatim, Google Drive API —
-  only minimal data (e.g. coordinates) is transmitted.</p>
-  <p><strong>Retention:</strong> data stays on your device until you delete it or uninstall.</p>
+  <p><strong>Photos:</strong> accessed only if you attach a photo to a finding (camera or
+  system file picker); stored locally, never uploaded.</p>
+  <p><strong>Network transmissions</strong> (minimum data only, over HTTPS, no advertising
+  identifiers):</p>
+  <ul>
+    <li><strong>WeatherAPI.com</strong> — current/forecast/history weather, location search,
+    reverse-geocoding fallback; receives coordinates (or a place name) and the API key.</li>
+    <li><strong>OpenStreetMap Nominatim</strong> — place names from coordinates and location
+    search; receives coordinates or your search text.</li>
+    <li><strong>Open-Meteo</strong> — elevation of points; receives coordinates.</li>
+    <li><strong>Overpass API</strong> — nearby search areas around favourite zones; receives
+    zone coordinates.</li>
+    <li><strong>OpenStreetMap / OpenTopoMap tiles</strong> — online map display; tile servers
+    see the viewed area and your IP address.</li>
+    <li><strong>Internet Archive (archive.org)</strong> — offline map (MBTiles) downloads;
+    receives only the region name.</li>
+    <li><strong>Google Play</strong> — in-app update check, handled by Google Play services.</li>
+  </ul>
+  <p><strong>Background weather checks (smart notifications) — opt-in:</strong> if you enable
+  smart notifications in Settings (off by default), the app periodically (about every 2 hours)
+  checks the weather for your favourite areas <strong>even when the app is closed</strong>,
+  sending those areas' coordinates to WeatherAPI.com. You can turn this off at any time; when
+  disabled, no requests are made while the app is closed.</p>
+  <p><strong>Retention &amp; your rights (GDPR):</strong> data stays on your device until you
+  delete it in the app or uninstall. Access, portability (GPX/ZIP export) and erasure (in-app
+  deletion) are self-service; the controller keeps no copy of your data.</p>
   <p><strong>Children:</strong> not intended for children under 13.</p>
+  <p><strong>Foraging note:</strong> the app records your trips and grants no harvesting
+  authorization; mushroom and truffle picking is regulated by national and regional laws —
+  always check local rules.</p>
   <p><strong>Contact:</strong> isaac.pitasi@gmail.com</p>
 </body>
 </html>
