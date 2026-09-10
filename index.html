@@ -28,7 +28,7 @@
 </head>
 <body>
   <h1>Informativa sulla Privacy — FTL</h1>
-  <p class="muted">Funghi Tracker Logger · Ultimo aggiornamento: 2 agosto 2026</p>
+  <p class="muted">Funghi Tracker Logger · Ultimo aggiornamento: 11 settembre 2026</p>
 
   <p>FTL (Funghi Tracker Logger) è un'applicazione per il tracciamento GPS delle escursioni di
   raccolta di funghi e tartufi. Questa informativa descrive quali dati l'app tratta e come.</p>
@@ -78,8 +78,9 @@
     <tr><td><strong>OpenStreetMap Nominatim</strong><br /><code>nominatim.openstreetmap.org</code></td>
         <td>Nome del luogo dalle coordinate e ricerca località</td>
         <td>Coordinate o testo cercato</td></tr>
-    <tr><td><strong>Open-Meteo</strong><br /><code>api.open-meteo.com</code></td>
-        <td>Quota altimetrica dei punti</td>
+    <tr><td><strong>Open-Meteo</strong><br /><code>api.open-meteo.com</code><br /><code>archive-api.open-meteo.com</code></td>
+        <td>Quota altimetrica dei punti; stato del terreno delle zone preferite (umidità del suolo,
+        evapotraspirazione) e relativo storico, usati per stimare le nascite</td>
         <td>Coordinate</td></tr>
     <tr><td><strong>Overpass API</strong><br /><code>overpass-api.de</code></td>
         <td>Aree di ricerca vicine alle zone preferite (cime, boschi, località)</td>
@@ -102,6 +103,19 @@
   anche quando l'app è chiusa</strong>: le coordinate di quelle zone vengono inviate a
   WeatherAPI.com. Puoi disattivare la funzione in qualsiasi momento dallo stesso interruttore;
   con le notifiche disattivate nessuna richiesta parte ad app chiusa.</p>
+
+  <h3>Invio volontario degli esiti delle previsioni — facoltativo</h3>
+  <p>Dalle Impostazioni puoi creare un file con gli esiti che hai dato agli avvisi
+  (Niente/Pochi/Tanti), i 👍/👎 sulle categorie di notifica, le statistiche di accuratezza
+  calcolate sul tuo telefono e le tue impostazioni delle notifiche, e decidere <strong>tu</strong>
+  se e a chi inviarlo, tramite il menu di condivisione di Android.
+  <strong>L'app non invia nulla da sola.</strong> Il file <strong>non contiene coordinate, i nomi
+  delle tue zone, tracce, ritrovamenti, foto né il diario meteo</strong>: le località compaiono solo
+  come «zona 1, zona 2…». Prima di condividere vedi un'anteprima con l'elenco di cosa contiene e
+  cosa no. Se scegli di inviarlo a <a href="mailto:isaac.pitasi@gmail.com">isaac.pitasi@gmail.com</a>,
+  i dati sono usati <strong>solo</strong> per migliorare il modello previsionale, non vengono ceduti
+  a terzi, e puoi chiederne la cancellazione scrivendo allo stesso indirizzo.</p>
+
   <p class="muted">I servizi elencati sono titolari autonomi per i log dei propri server; si
   applicano le loro informative:
   <a href="https://www.weatherapi.com/privacy.aspx">WeatherAPI</a>,
@@ -143,7 +157,7 @@
   <hr />
 
   <h1>Privacy Policy — FTL (English)</h1>
-  <p class="muted">Last updated: August 2, 2026</p>
+  <p class="muted">Last updated: September 11, 2026</p>
   <p>FTL (Funghi Tracker Logger) is a GPS tracking app for mushroom and truffle foraging.
   Data controller: <strong>Isaac Pitasi</strong> —
   <a href="mailto:isaac.pitasi@gmail.com">isaac.pitasi@gmail.com</a>.</p>
@@ -173,7 +187,10 @@
     reverse-geocoding fallback; receives coordinates (or a place name) and the API key.</li>
     <li><strong>OpenStreetMap Nominatim</strong> — place names from coordinates and location
     search; receives coordinates or your search text.</li>
-    <li><strong>Open-Meteo</strong> — elevation of points; receives coordinates.</li>
+    <li><strong>Open-Meteo</strong> (<code>api.open-meteo.com</code>,
+    <code>archive-api.open-meteo.com</code>) — elevation of points; soil state for your favourite
+    areas (soil moisture, evapotranspiration) and its history, used to estimate fruiting; receives
+    coordinates.</li>
     <li><strong>Overpass API</strong> — nearby search areas around favourite zones; receives
     zone coordinates.</li>
     <li><strong>OpenStreetMap / OpenTopoMap tiles</strong> — online map display; tile servers
@@ -181,6 +198,19 @@
     <li><strong>Internet Archive (archive.org)</strong> — offline map (MBTiles) downloads;
     receives only the region name.</li>
     <li><strong>Google Play</strong> — in-app update check, handled by Google Play services.</li>
+
+  <h3>Voluntary sharing of forecast results — optional</h3>
+  <p>From Settings you can create a file with the results you gave to alerts (Nothing/A few/Lots),
+  your 👍/👎 on notification categories, the accuracy statistics computed on your phone and your
+  notification settings, then decide <strong>yourself</strong> whether and to whom to send it,
+  through the Android share menu. <strong>The app never sends anything on its own.</strong> The file
+  contains <strong>no coordinates, no names of your spots, no tracks, findings, photos or weather
+  diary</strong>: places appear only as &ldquo;area 1, area 2&hellip;&rdquo;. You see a preview
+  listing what is and is not included before sharing. If you choose to send it to
+  <a href="mailto:isaac.pitasi@gmail.com">isaac.pitasi@gmail.com</a>, the data is used
+  <strong>only</strong> to improve the forecasting model, is not passed on to third parties, and you
+  can ask for its deletion by writing to the same address.</p>
+
   </ul>
   <p><strong>Background weather checks (smart notifications) — opt-in:</strong> if you enable
   smart notifications in Settings (off by default), the app periodically (about every 2 hours)
