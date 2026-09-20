@@ -28,7 +28,7 @@
 </head>
 <body>
   <h1>Informativa sulla Privacy — FTL</h1>
-  <p class="muted">Funghi Tracker Logger · Ultimo aggiornamento: 11 settembre 2026</p>
+  <p class="muted">Funghi Tracker Logger · Ultimo aggiornamento: 20 settembre 2026</p>
 
   <p>FTL (Funghi Tracker Logger) è un'applicazione per il tracciamento GPS delle escursioni di
   raccolta di funghi e tartufi. Questa informativa descrive quali dati l'app tratta e come.</p>
@@ -72,16 +72,20 @@
   <div class="tablewrap">
   <table>
     <tr><th>Servizio</th><th>Scopo</th><th>Dati inviati</th></tr>
-    <tr><td><strong>WeatherAPI.com</strong><br /><code>api.weatherapi.com</code></td>
-        <td>Meteo attuale, previsioni e storico; ricerca località; nome del luogo dalle coordinate (fallback)</td>
-        <td>Coordinate della posizione o delle zone richieste, chiave API</td></tr>
     <tr><td><strong>OpenStreetMap Nominatim</strong><br /><code>nominatim.openstreetmap.org</code></td>
         <td>Nome del luogo dalle coordinate e ricerca località</td>
         <td>Coordinate o testo cercato</td></tr>
     <tr><td><strong>Open-Meteo</strong><br /><code>api.open-meteo.com</code><br /><code>archive-api.open-meteo.com</code></td>
-        <td>Quota altimetrica dei punti; stato del terreno delle zone preferite (umidità del suolo,
-        evapotraspirazione) e relativo storico, usati per stimare le nascite</td>
-        <td>Coordinate</td></tr>
+        <td>Meteo attuale, previsioni a 16 giorni, storico recente e archivio climatico (ERA5, fino a
+        12 anni) della posizione e delle zone preferite; quota altimetrica; stato del terreno (umidità
+        del suolo, evapotraspirazione), usati per stimare le nascite. Senza chiave né account</td>
+        <td>Coordinate della posizione o delle zone richieste (e la loro quota)</td></tr>
+    <tr><td><strong>Meteoalarm</strong><br /><code>feeds.meteoalarm.org</code></td>
+        <td>Allerte meteo ufficiali italiane, per regione (feed nazionale di EUMETNET / Protezione Civile)</td>
+        <td>Nessun dato: il feed è unico per tutta l'Italia, il filtro per regione avviene sul dispositivo</td></tr>
+    <tr><td><strong>iNaturalist</strong><br /><code>api.inaturalist.org</code><br /><em>solo se attivi «Segnalazioni della comunità» (disattivato di default)</em></td>
+        <td>Segnalazioni pubbliche di funghi vicino alle zone preferite (mostrati solo conteggi e nomi)</td>
+        <td>Coordinate delle zone preferite <strong>arrotondate a ~1 km</strong> e raggio di ricerca</td></tr>
     <tr><td><strong>Overpass API</strong><br /><code>overpass-api.de</code></td>
         <td>Aree di ricerca vicine alle zone preferite (cime, boschi, località)</td>
         <td>Coordinate della zona con raggio di ricerca</td></tr>
@@ -101,7 +105,8 @@
   <p>Se attivi le <strong>notifiche smart</strong> nelle Impostazioni (disattivate di default),
   l'app controlla periodicamente (circa ogni 2 ore) il meteo delle tue <strong>zone preferite
   anche quando l'app è chiusa</strong>: le coordinate di quelle zone vengono inviate a
-  WeatherAPI.com. Puoi disattivare la funzione in qualsiasi momento dallo stesso interruttore;
+  Open-Meteo, e viene scaricato il feed nazionale delle allerte di Meteoalarm (che non riceve
+  alcun dato). Puoi disattivare la funzione in qualsiasi momento dallo stesso interruttore;
   con le notifiche disattivate nessuna richiesta parte ad app chiusa.</p>
 
   <h3>Invio volontario degli esiti delle previsioni — facoltativo</h3>
@@ -118,9 +123,10 @@
 
   <p class="muted">I servizi elencati sono titolari autonomi per i log dei propri server; si
   applicano le loro informative:
-  <a href="https://www.weatherapi.com/privacy.aspx">WeatherAPI</a>,
-  <a href="https://osmfoundation.org/wiki/Privacy_Policy">OSMF/Nominatim</a>,
   <a href="https://open-meteo.com/en/terms">Open-Meteo</a>,
+  <a href="https://meteoalarm.org/">Meteoalarm</a>,
+  <a href="https://www.inaturalist.org/pages/privacy">iNaturalist</a>,
+  <a href="https://osmfoundation.org/wiki/Privacy_Policy">OSMF/Nominatim</a>,
   <a href="https://archive.org/about/terms.php">Internet Archive</a>,
   <a href="https://policies.google.com/privacy">Google Play</a>.</p>
 
@@ -157,7 +163,7 @@
   <hr />
 
   <h1>Privacy Policy — FTL (English)</h1>
-  <p class="muted">Last updated: September 11, 2026</p>
+  <p class="muted">Last updated: September 20, 2026</p>
   <p>FTL (Funghi Tracker Logger) is a GPS tracking app for mushroom and truffle foraging.
   Data controller: <strong>Isaac Pitasi</strong> —
   <a href="mailto:isaac.pitasi@gmail.com">isaac.pitasi@gmail.com</a>.</p>
@@ -183,14 +189,20 @@
   <p><strong>Network transmissions</strong> (minimum data only, over HTTPS, no advertising
   identifiers):</p>
   <ul>
-    <li><strong>WeatherAPI.com</strong> — current/forecast/history weather, location search,
-    reverse-geocoding fallback; receives coordinates (or a place name) and the API key.</li>
     <li><strong>OpenStreetMap Nominatim</strong> — place names from coordinates and location
     search; receives coordinates or your search text.</li>
     <li><strong>Open-Meteo</strong> (<code>api.open-meteo.com</code>,
-    <code>archive-api.open-meteo.com</code>) — elevation of points; soil state for your favourite
-    areas (soil moisture, evapotranspiration) and its history, used to estimate fruiting; receives
-    coordinates.</li>
+    <code>archive-api.open-meteo.com</code>) — current weather, 16-day forecast, recent history and
+    the climate archive (ERA5, up to 12 years) of your position and favourite areas; elevation;
+    soil state (soil moisture, evapotranspiration), used to estimate fruiting. No key, no account;
+    receives coordinates (and their elevation).</li>
+    <li><strong>Meteoalarm</strong> (<code>feeds.meteoalarm.org</code>) — official Italian weather
+    alerts by region (national EUMETNET / Civil Protection feed); receives no data: the feed is
+    nationwide and the region filter runs on the device.</li>
+    <li><strong>iNaturalist</strong> (<code>api.inaturalist.org</code>) — <strong>only if you enable
+    “Community sightings”</strong> (off by default) — public mushroom sightings near your favourite
+    areas (counts and names only); receives the areas' coordinates <strong>rounded to ~1 km</strong>
+    and the search radius.</li>
     <li><strong>Overpass API</strong> — nearby search areas around favourite zones; receives
     zone coordinates.</li>
     <li><strong>OpenStreetMap / OpenTopoMap tiles</strong> — online map display; tile servers
@@ -215,8 +227,9 @@
   <p><strong>Background weather checks (smart notifications) — opt-in:</strong> if you enable
   smart notifications in Settings (off by default), the app periodically (about every 2 hours)
   checks the weather for your favourite areas <strong>even when the app is closed</strong>,
-  sending those areas' coordinates to WeatherAPI.com. You can turn this off at any time; when
-  disabled, no requests are made while the app is closed.</p>
+  sending those areas' coordinates to Open-Meteo and downloading the nationwide Meteoalarm alerts
+  feed (which receives no data). You can turn this off at any time; when disabled, no requests
+  are made while the app is closed.</p>
   <p><strong>Retention &amp; your rights (GDPR):</strong> data stays on your device until you
   delete it in the app or uninstall. Access, portability (GPX/ZIP export) and erasure (in-app
   deletion) are self-service; the controller keeps no copy of your data.</p>
