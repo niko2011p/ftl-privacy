@@ -28,7 +28,7 @@
 </head>
 <body>
   <h1>Informativa sulla Privacy — FTL</h1>
-  <p class="muted">Funghi Tracker Logger · Ultimo aggiornamento: 20 settembre 2026</p>
+  <p class="muted">Funghi Tracker Logger · Ultimo aggiornamento: 5 ottobre 2026</p>
 
   <p>FTL (Funghi Tracker Logger) è un'applicazione per il tracciamento GPS delle escursioni di
   raccolta di funghi e tartufi. Questa informativa descrive quali dati l'app tratta e come.</p>
@@ -78,14 +78,29 @@
     <tr><td><strong>Open-Meteo</strong><br /><code>api.open-meteo.com</code><br /><code>archive-api.open-meteo.com</code></td>
         <td>Meteo attuale, previsioni a 16 giorni, storico recente e archivio climatico (ERA5, fino a
         12 anni) della posizione e delle zone preferite; quota altimetrica; stato del terreno (umidità
-        del suolo, evapotraspirazione), usati per stimare le nascite. Senza chiave né account</td>
-        <td>Coordinate della posizione o delle zone richieste (e la loro quota)</td></tr>
+        del suolo, evapotraspirazione), usati per stimare le nascite. Con lo strato «Meteo previsto»
+        della mappa (spento di default), le previsioni orarie su una griglia di punti. Senza chiave né account</td>
+        <td>Coordinate della posizione o delle zone richieste (e la loro quota); per lo strato «Meteo
+        previsto», i punti di una griglia fissa sull'Italia e, da vicino, di una griglia attorno al
+        centro della mappa visualizzata</td></tr>
     <tr><td><strong>Meteoalarm</strong><br /><code>feeds.meteoalarm.org</code></td>
         <td>Allerte meteo ufficiali italiane, per regione (feed nazionale di EUMETNET / Protezione Civile)</td>
         <td>Nessun dato: il feed è unico per tutta l'Italia, il filtro per regione avviene sul dispositivo</td></tr>
     <tr><td><strong>iNaturalist</strong><br /><code>api.inaturalist.org</code><br /><em>solo se attivi «Segnalazioni della comunità» (disattivato di default)</em></td>
         <td>Segnalazioni pubbliche di funghi vicino alle zone preferite (mostrati solo conteggi e nomi)</td>
         <td>Coordinate delle zone preferite <strong>arrotondate a ~1 km</strong> e raggio di ricerca</td></tr>
+    <tr><td><strong>iNaturalist</strong><br /><code>api.inaturalist.org</code><br /><em>strato «Nascite in Italia» della mappa (si spegne dal pannello Strati)</em></td>
+        <td>Dove sono state osservate di recente specie di funghi o tartufi in Italia: una macchia da
+        lontano, i singoli punti da vicino (mostrati solo nomi e date)</td>
+        <td>Le richieste delle immagini della macchia (l'operatore vede l'area e l'indirizzo IP); da
+        vicino, il riquadro dell'area di mappa visualizzata</td></tr>
+    <tr><td><strong>Dipartimento della Protezione Civile — radar</strong><br /><code>radar-api.protezionecivile.it</code><br /><em>file su Amazon S3 (<code>s3.eu-south-1.amazonaws.com</code>)</em></td>
+        <td>Pioggia misurata dal radar e nuvole dal satellite per lo strato «Radar e satellite» della
+        mappa (spento di default); una volta al giorno la pioggia caduta il giorno prima, per
+        confrontarla con il modello nello storico delle zone preferite. I calcoli sulle zone avvengono
+        sul dispositivo</td>
+        <td>Nessuna coordinata: solo il tipo di immagine e l'orario richiesto (il servizio vede
+        l'indirizzo IP)</td></tr>
     <tr><td><strong>Overpass API</strong><br /><code>overpass-api.de</code></td>
         <td>Aree di ricerca vicine alle zone preferite (cime, boschi, località)</td>
         <td>Coordinate della zona con raggio di ricerca</td></tr>
@@ -126,6 +141,7 @@
   <a href="https://open-meteo.com/en/terms">Open-Meteo</a>,
   <a href="https://meteoalarm.org/">Meteoalarm</a>,
   <a href="https://www.inaturalist.org/pages/privacy">iNaturalist</a>,
+  <a href="https://www.protezionecivile.gov.it/it/note-legali/">Protezione Civile</a>,
   <a href="https://osmfoundation.org/wiki/Privacy_Policy">OSMF/Nominatim</a>,
   <a href="https://archive.org/about/terms.php">Internet Archive</a>,
   <a href="https://policies.google.com/privacy">Google Play</a>.</p>
@@ -163,7 +179,7 @@
   <hr />
 
   <h1>Privacy Policy — FTL (English)</h1>
-  <p class="muted">Last updated: September 20, 2026</p>
+  <p class="muted">Last updated: October 5, 2026</p>
   <p>FTL (Funghi Tracker Logger) is a GPS tracking app for mushroom and truffle foraging.
   Data controller: <strong>Isaac Pitasi</strong> —
   <a href="mailto:isaac.pitasi@gmail.com">isaac.pitasi@gmail.com</a>.</p>
@@ -194,8 +210,11 @@
     <li><strong>Open-Meteo</strong> (<code>api.open-meteo.com</code>,
     <code>archive-api.open-meteo.com</code>) — current weather, 16-day forecast, recent history and
     the climate archive (ERA5, up to 12 years) of your position and favourite areas; elevation;
-    soil state (soil moisture, evapotranspiration), used to estimate fruiting. No key, no account;
-    receives coordinates (and their elevation).</li>
+    soil state (soil moisture, evapotranspiration), used to estimate fruiting. With the map layer
+    “Weather forecast” (off by default), hourly forecasts on a grid of points. No key, no account;
+    receives coordinates (and their elevation); for the “Weather forecast” layer, the points of a
+    fixed grid over Italy and, when zoomed in, of a grid around the centre of the map you are
+    viewing.</li>
     <li><strong>Meteoalarm</strong> (<code>feeds.meteoalarm.org</code>) — official Italian weather
     alerts by region (national EUMETNET / Civil Protection feed); receives no data: the feed is
     nationwide and the region filter runs on the device.</li>
@@ -203,6 +222,18 @@
     “Community sightings”</strong> (off by default) — public mushroom sightings near your favourite
     areas (counts and names only); receives the areas' coordinates <strong>rounded to ~1 km</strong>
     and the search radius.</li>
+    <li><strong>iNaturalist</strong> (<code>api.inaturalist.org</code>) — map layer “Fruiting
+    across Italy” (can be turned off in the Layers panel) — where mushroom or truffle species were
+    recently observed in Italy: a heat map from afar, single points up close (names and dates only);
+    the operator sees the heat-map image requests (area and IP address) and, up close, the bounding
+    box of the map you are viewing.</li>
+    <li><strong>Italian Civil Protection Department — radar</strong>
+    (<code>radar-api.protezionecivile.it</code>; files on Amazon S3,
+    <code>s3.eu-south-1.amazonaws.com</code>) — rain measured by radar and satellite clouds for the
+    map layer “Radar and satellite” (off by default); once a day, the rain that fell the day before,
+    to compare it with the model in your favourite areas' history. The calculations on your areas
+    run on the device. Receives <strong>no coordinates</strong>: only the image type and the
+    requested time (the service sees your IP address).</li>
     <li><strong>Overpass API</strong> — nearby search areas around favourite zones; receives
     zone coordinates.</li>
     <li><strong>OpenStreetMap / OpenTopoMap tiles</strong> — online map display; tile servers
