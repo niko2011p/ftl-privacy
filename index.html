@@ -28,7 +28,7 @@
 </head>
 <body>
   <h1>Informativa sulla Privacy — FTL</h1>
-  <p class="muted">Funghi Tracker Logger · Ultimo aggiornamento: 5 ottobre 2026</p>
+  <p class="muted">Funghi Tracker Logger · Ultimo aggiornamento: 8 ottobre 2026</p>
 
   <p>FTL (Funghi Tracker Logger) è un'applicazione per il tracciamento GPS delle escursioni di
   raccolta di funghi e tartufi. Questa informativa descrive quali dati l'app tratta e come.</p>
@@ -104,6 +104,17 @@
     <tr><td><strong>Overpass API</strong><br /><code>overpass-api.de</code></td>
         <td>Aree di ricerca vicine alle zone preferite (cime, boschi, località)</td>
         <td>Coordinate della zona con raggio di ricerca</td></tr>
+    <tr><td><strong>Copernicus / Agenzia Europea dell'Ambiente</strong><br /><code>image.discomap.eea.europa.eu</code></td>
+        <td>Tipo di bosco (latifoglie, conifere, misto, prato) di ogni zona preferita, letto una volta
+        quando la zona viene seguita (e su «Rileggi la carta»)</td>
+        <td>Coordinate della zona e un riquadro di ~400 m attorno</td></tr>
+    <tr><td><strong>Carte forestali regionali</strong> e <strong>ISPRA, Carta della Natura</strong><br />
+        <code>geoportale.regione.lazio.it</code>, <code>cartografia.servizirl.it</code>,
+        <code>servizigis.regione.emilia-romagna.it</code>, <code>geoservices.csi.it</code>,
+        <code>sdi.isprambiente.it</code></td>
+        <td>Albero dominante del bosco della zona preferita (faggeta, castagneto, querceto…), letto una
+        volta, solo per la regione in cui si trova la zona</td>
+        <td>Coordinate della zona</td></tr>
     <tr><td><strong>Tile OpenStreetMap / OpenTopoMap</strong></td>
         <td>Visualizzazione delle mappe online</td>
         <td>Richieste di tile: l'operatore vede l'area visualizzata e l'indirizzo IP</td></tr>
@@ -179,7 +190,7 @@
   <hr />
 
   <h1>Privacy Policy — FTL (English)</h1>
-  <p class="muted">Last updated: October 5, 2026</p>
+  <p class="muted">Last updated: October 8, 2026</p>
   <p>FTL (Funghi Tracker Logger) is a GPS tracking app for mushroom and truffle foraging.
   Data controller: <strong>Isaac Pitasi</strong> —
   <a href="mailto:isaac.pitasi@gmail.com">isaac.pitasi@gmail.com</a>.</p>
@@ -236,6 +247,12 @@
     requested time (the service sees your IP address).</li>
     <li><strong>Overpass API</strong> — nearby search areas around favourite zones; receives
     zone coordinates.</li>
+    <li><strong>Copernicus / European Environment Agency</strong> (image.discomap.eea.europa.eu) —
+    forest type of each favourite zone (broadleaf, coniferous, mixed, grassland), read once when the
+    zone is followed; receives the zone coordinates and a ~400 m box around them.</li>
+    <li><strong>Regional forest maps</strong> (Lazio, Lombardia, Emilia-Romagna, Piemonte geoportals)
+    and <strong>ISPRA Carta della Natura</strong> — dominant tree of the zone's forest, read once, only
+    for the region the zone is in; receive the zone coordinates.</li>
     <li><strong>OpenStreetMap / OpenTopoMap tiles</strong> — online map display; tile servers
     see the viewed area and your IP address.</li>
     <li><strong>Internet Archive (archive.org)</strong> — offline map (MBTiles) downloads;
